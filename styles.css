@@ -60,22 +60,29 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 4rem 1rem;
     background: url('images/hero-bg.png') no-repeat center center/cover;
     color: #f8f8f8;
 }
 
 .hero-content {
-    max-width: 600px;
-    margin: 1rem auto; /* Center content horizontally */
+    max-width: 50%;
+    margin: 0 auto; /* Center content horizontally */
     z-index: 2; /* Ensure content is above the background */
 }
 
+.hero-image {
+    display: inline-flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+     /* Allows the image to adapt to the available space */
+}
+
 .hero-image img {
-    left: 0;
     transform: translateX(-30%);
     max-width: 100%; /* Ensure the image scales responsively */
-    height: auto; /* Maintain aspect ratio */
     width: 300px; /* Medium size */
     height: 400px; /* Square shape */
     object-fit: cover; /* Ensures the image fills the dimensions while maintaining focus */
@@ -555,3 +562,5 @@ h2 {
     transform: scale(1.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+
