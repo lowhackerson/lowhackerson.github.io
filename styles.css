@@ -61,29 +61,27 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 4rem 1rem;
-    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    background: url('images/hero-bg.png') no-repeat center center/cover;
     color: #f8f8f8;
 }
 
 .hero-content {
     max-width: 600px;
-    height: auto;
-    width: 500px; /* Medium size */
-    height: 300px;
-    margin: 3.5rem ; /* Center the image with some margin */
+    margin: 1rem auto; /* Center content horizontally */
+    z-index: 2; /* Ensure content is above the background */
 }
 
 .hero-image img {
     left: 0;
     transform: translateX(-30%);
-    max-width: 600%; /* Ensure the image scales responsively */
+    max-width: 100%; /* Ensure the image scales responsively */
     height: auto; /* Maintain aspect ratio */
     width: 300px; /* Medium size */
     height: 400px; /* Square shape */
     object-fit: cover; /* Ensures the image fills the dimensions while maintaining focus */
     border-radius: 10%; /* Makes the image circular */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for a polished look */
-    margin: 3.5rem auto; /* Center the image with some margin */
+    margin: 2rem 0; /* Center the image with some margin */
 }
 
 .project img {
@@ -99,11 +97,6 @@ header {
     margin: auto;
 }
 
-.projects .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
 
 .project {
     background: #fff;
@@ -159,12 +152,7 @@ body {
     margin-bottom: 2rem;
 }
 
-.project-grid {
-    display: grid;
-    background: #ffff;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
+
 
 .project {
     background: #fff;
@@ -315,19 +303,6 @@ h2 {
     color: #45a049;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .contact-form,
-    .contact-info {
-        width: 100%;
-    }
-}
-
 /* Footer */
 footer {
     text-align: center;
@@ -414,6 +389,8 @@ footer {
 }
 /* styles.css */
 #technologies {
+    background-color: #e8f5e9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 60px 20px;
     text-align: center;
     background-color: #f9f9f9;
@@ -468,15 +445,113 @@ footer {
     color: #555;
     margin-top: 10px;
 }
+/* Responsive Design Enhancements */
 
-/* Responsive Design */
+/* Adjust the hero section for smaller screens */
 @media (max-width: 768px) {
-    .tech-card {
-        width: 150px;
-    }
-
-    .tech-container {
+    .hero {
         flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+    }
+    .hero-content {
+        text-align: center;
+        width: 100%;
+    }
+    .hero-image img {
+        max-width: 80%;
+        height: auto;
     }
 }
 
+/* About Section */
+@media (max-width: 768px) {
+    .about-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Projects Section */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column for narrow screens */
+    }
+    .project {
+        margin: 0 auto; /* Center projects */
+    }
+}
+
+/* Technologies Section */
+@media (max-width: 768px) {
+    .tech-container {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px;
+    }
+    .tech-card {
+        width: 90%; /* Make cards take up most of the screen width */
+    }
+}
+
+/* Contact Section */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Stack form and info vertically */
+    }
+    .contact-form,
+    .contact-info {
+        width: 90%; /* Make forms and info take up most of the screen width */
+    }
+}
+
+/* Navbar Adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: row;
+        position: static;
+        align-items: center;
+        gap: 10px;
+    }
+    .nav-links li {
+        margin: 0;
+    }
+}
+
+/* General Adjustments */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h2 {
+    font-size: 1.8rem; /* Slightly smaller headings for mobile */
+}
+
+/* Footer */
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.8rem;
+    }
+}
+/* Add this CSS to your styles.css */
+
+/* Keyframe for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Apply animation to sections */
+.about, .projects, .contact {
+    animation: fadeIn 1s ease-in-out;
+    animation-delay: 0.5s; /* Optional: Delay for staggered effect */
+}
+/* Example: Smooth transition for hover effects */
+.tech-card:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
